@@ -1,0 +1,15 @@
+services:
+  api_database:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: "technical_task"
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+    volumes:
+      - api_database_volume:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  api_database_volume:
