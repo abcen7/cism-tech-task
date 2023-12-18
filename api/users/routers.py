@@ -13,7 +13,8 @@ users_router = APIRouter()
     "/users",
     status_code=status.HTTP_200_OK
 )
-async def create_user(user: UserCreate, users_service: UsersService = Depends()) -> User:
+async def create_user(user: UserCreate, users_service: UsersService = Depends()) -> UserRead:
+    # Is user registered
     return await users_service.create(user)
 
 @users_router.get(
